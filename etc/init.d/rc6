@@ -1,0 +1,13 @@
+#! /bin/sh
+echo "=rc6 Start="
+
+if [ -e "/3" ]; then
+  sh /etc/init.d/rc.reboot
+fi
+
+if [ -e "/6" ]; then
+  sh /etc/init.d/rc.fast_reboot 
+fi
+
+echo "=rc6 End="
+exit 0

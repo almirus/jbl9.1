@@ -1,0 +1,29 @@
+# This script runs last, after all network configuration
+# has completed. It sets a property to let the framework
+# know that setting up the interface is complete.
+
+HOST_FILE=/etc/hosts
+
+case "${reason}" in
+BOUND|INFORM|REBIND|REBOOT|RENEW|TIMEOUT)
+    echo `date`: configured: ${reason} >> ${state_dir}/hooks.log
+    ifconfig ${interface} ${new_ip_address} netmask ${new_subnet_mask}
+    echo ${new_ip_address} `cat /proc/sys/kernel/hostname` > ${HOST_FILE}
+    echo "127.0.0.1   localhost" >> ${HOST_FILE}
+
+    for route in ${new_routers}; do
+        route add default gw ${route} dev ${interface}
+    done
+    ;;
+
+EXPIRE|FAIL|IPV4LL|STOP)
+    echo `date`: configured: ${reason} >> ${state_dir}/hooks.log
+    echo "failed" >> ${state_dir}/hooks.log
+    ;;
+
+RELEASE)
+    echo "127.0.0.1   localhost" > ${HOST_FILE}
+    echo `date`: configured: ${reason} >> ${state_dir}/hooks.log
+    echo "release" >> ${state_dir}/hooks.log
+    ;;
+esac

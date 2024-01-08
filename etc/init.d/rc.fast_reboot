@@ -1,0 +1,28 @@
+#! /bin/sh
+
+#################################################
+#																								#
+#				Sequence of Reboot script								#
+#																								#
+#################################################
+
+echo "=== System Fast Reboot Start ==="
+
+#
+#	 Kill processes
+#
+
+#killall bdpprog
+killall -KILL bdpprog
+
+
+#
+#	Execute shutdown
+#
+
+/sbin/reboot
+
+
+
+
+

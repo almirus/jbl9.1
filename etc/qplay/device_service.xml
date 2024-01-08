@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scpd xmlns="urn:schemas-upnp-org:service-1-0">
+   <specVersion>
+      <major>1</major>
+      <minor>0</minor>
+	</specVersion>
+  <actionList>
+    <action><Optional/>
+    <name>GetPort</name>
+      <argumentList>
+        <argument>
+          <name>CurrentPort</name>
+          <direction>out</direction>
+          <relatedStateVariable>Port</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+  </actionList>
+	<serviceStateTable>
+    	<stateVariable><Optional/>
+      		<name>Port</name> 
+      		<sendEventsAttribute>yes</sendEventsAttribute>
+      		<dataType>ui2</dataType>
+    	</stateVariable>
+	</serviceStateTable>
+</scpd>

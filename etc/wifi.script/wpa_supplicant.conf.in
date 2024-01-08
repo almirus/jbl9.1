@@ -1,0 +1,13 @@
+ctrl_interface=/data/wifi
+update_config=1
+country=US
+wowlan_triggers=magic_pkt
+
+network={
+	ssid="cleichner-2.4GHz"
+	scan_ssid=1
+	psk="remotes only"
+	proto=RSN
+	key_mgmt=WPA-PSK
+	pairwise=CCMP
+}

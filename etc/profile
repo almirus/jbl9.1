@@ -1,0 +1,5 @@
+# /etc/profile
+
+export PATH="$PATH:/usr/local/bin"
+export LD_LIBRARY_PATH="/usr/local/lib:/mnt/ubi_boot/forusb/bluetooth/usr/lib"
+export QT_QWS_FONTDIR=/lib/fonts

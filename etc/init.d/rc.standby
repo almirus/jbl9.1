@@ -1,0 +1,53 @@
+#! /bin/sh
+
+#################################################
+#																								#
+#				Sequence of Standby script							#
+#																								#
+#################################################
+
+echo "=== Standby on Start ==="
+
+#
+#	Remove driver modules
+#
+MODULE_DIR=/lib/modules/`uname -r`/BDP
+MODULE_KOS="bdpdrv.ko drvuart.ko rm.ko cbagent.ko kmem.ko osai.ko drvcli.ko drv_mem.ko bsp.ko dbg_utility.ko"
+for MODULE_KO in $MODULE_KOS; do
+    echo "remove module ${MODULE_DIR}/${MODULE_KO}"
+    rmmod ${MODULE_KO}
+    
+    if [ $? -ne 0 ]; then
+        echo "remove module ${MODULE_DIR}/${MODULE_KO} FAIL..."
+        exit 1
+		else
+				echo "remove module ${MODULE_DIR}/${MODULE_KO} SUCCESS..."
+    fi
+
+done
+
+#
+#	Insert power down module
+#
+MODULE_POWER_DOWN="pdown.ko"
+insmod ${MODULE_DIR}/${MODULE_POWER_DOWN}
+if [ $? -ne 0 ]; then
+        echo ------------------------------------------------
+        echo Pdown module is inserted successfully
+        echo ------------------------------------------------
+        exit 1
+fi
+echo "insert module ${MODULE_DIR}/${MODULE_POWER_DOWN}"
+sleep 1
+echo "Ready to executing"
+
+#
+#	Execute shutdown
+#
+
+/sbin/poweroff
+
+
+
+
+

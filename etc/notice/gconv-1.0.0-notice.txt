@@ -1,0 +1,4 @@
+		   README for GNU development tools
+
+  Gconv is getted from toolchain, so when your toolchain has been builded,
+then you can get gconv from your toolchain 

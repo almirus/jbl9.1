@@ -1,0 +1,11 @@
+rootfs / rootfs rw 0 0
+tmpfs /dev tmpfs rw,relatime,size=4096k,mode=755 0 0
+devpts /dev/pts devpts rw,relatime,mode=600,ptmxmode=000 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+tmpfs /tmp tmpfs rw,relatime,size=262144k 0 0
+tmpfs /dev/shm tmpfs rw,relatime,size=262144k 0 0
+/dev/block/mtdblock13 /system squashfs ro,relatime 0 0
+ubi0:ubi_boot /mnt/ubi_boot ubifs rw,relatime,no_chk_data_crc 0 0
+ubi0:chrome /system/chrome ubifs rw,relatime,no_chk_data_crc 0 0
+/dev/block/sda1 /mnt/sda1 vfat rw,relatime,gid=100,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0

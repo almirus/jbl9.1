@@ -1,0 +1,45 @@
+#!/bin/sh
+
+#################################################################
+# This script is used for switching the default DNS between Google
+# DNS and router provided DNS. Only one parameter is expected.
+# disable_google_dns, true for disable; false for enable. The
+# algorithm is:
+#
+# step 1)
+#     Extract the router provided DNS from current resolv.conf.
+#
+# step 2)
+#     Call function edit_resolv_conf to update resolv.conf based
+#     on disable_google_dns or not and current router provided
+#     servers.
+#################################################################
+
+resolv_conf=/etc/resolv.conf
+
+# Sanity check to make sure argument number is correct
+test "$#" -eq 1 || exit
+
+current_servers=""
+dynamic_dns=0
+while read line; do
+    case "$line" in
+        *"Dynamic DNS Start"*)
+            dynamic_dns=1
+            ;;
+        *"Dynamic DNS End"*)
+            dynamic_dns=0
+            ;;
+        *)
+            key1=`echo $line | cut -d ' ' -f 1`
+            key2=`echo $line | cut -d ' ' -f 2`
+            if test "$key1" = "nameserver" -a "$dynamic_dns" = "1"; then
+                current_servers="$current_servers $key2"
+            fi
+            ;;
+    esac
+done < $resolv_conf
+
+# edit resolv.conf file
+. /etc/dhcpcd/resolv_conf_func
+edit_resolv_conf "$1" "$current_servers"

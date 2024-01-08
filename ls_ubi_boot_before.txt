@@ -1,0 +1,14 @@
+cal_para.txt
+cal_setting.txt
+cal_setting1.txt
+coredump_bdp
+data
+dumpLisMicL.wav
+dumpLisMicR.wav
+dumpSurMicL.wav
+dumpSurMicR.wav
+nand_03_0
+recover_upg_type.txt
+upg_guide.txt
+var
+wifi_region

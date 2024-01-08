@@ -1,0 +1,20 @@
+#! /bin/sh
+echo "=rcS Start="
+
+#sh /etc/init.d/mtd_init.sh
+
+#Install customer config file
+if [ -e /root/config ]; then
+	if [ -e /mnt/ubi_boot/config ]; then
+  	echo "Customer's config is exist"
+	else
+  	echo "Install customer's config files"
+		mkdir /mnt/ubi_boot/config
+		cp -rf /root/config/* /mnt/ubi_boot/config
+	fi
+fi
+
+echo "lircd_simulator start"
+lircd_simulator &
+
+echo "=rcS end="

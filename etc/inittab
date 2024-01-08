@@ -1,0 +1,8 @@
+id:5:initdefault:
+si::sysinit:/etc/init.d/rcSinit
+ca::ctrlaltdel:/etc/init.d/rcSinit -reboot
+0:0:once:/etc/init.d/rcSinit -shutdown
+5:5:wait:/etc/init.d/rc5
+6:6:once:/etc/init.d/rcSinit -reboot
+4:4:wait:/mnt/ubi_boot/upgbinary.bin
+ttyM:1235:respawn:/sbin/getty 9600 ttyMT0

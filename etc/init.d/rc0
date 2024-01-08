@@ -1,0 +1,13 @@
+#! /bin/sh
+echo "=rc0 Start="
+
+if [ -e "/2" ]; then
+  sh /etc/init.d/rc.shutdown
+fi
+
+if [ -e "/5" ]; then
+  sh /etc/init.d/rc.fast_shutdown
+fi
+
+echo "=rc0 End="
+exit 0

@@ -1,0 +1,166 @@
+#! /bin/sh
+echo "=rc5 Start="
+export PATH="$PATH:/usr/local/bin:/usr/net/vudu:/usr/net/browser/bin"
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/net/vudu:/usr/net/browser/lib:/mnt/ubi_boot/forusb/bluetooth/usr/lib:/lib/directfb-1.2-0/systems:/usr/lib/ppc"
+
+
+
+insmod /lib/modules/`uname -r`/BDP/ctc_security.ko
+#
+
+
+
+
+
+
+#qt related
+#qt lib for not-nettar
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/lib"
+export QT_PLUGIN_PATH="/plugins"
+export QT_QWS_FONTDIR="/lib/fonts"
+export QWS_SIZE=1280x720
+
+
+# sigma tool
+# export WFA_ENV_AGENT_IPADDR=127.0.0.1
+# export WFA_ENV_AGENT_PORT=8000
+# Add for save skype database to flash
+export HOME=/3rd_data
+export BLUETOOTH_USB_LIBRARY_PATH=/mnt/ubi_boot/forusb/bluetooth/usr/lib
+
+#Tune sockbuf for Miracast, don't mark
+echo "Increase Socket buffer size to 1M"
+echo 1048576 > /proc/sys/net/core/rmem_max
+
+#remove /misc/bluetooth library
+if [ -d /misc/bluetooth ]; then
+		rm -rfv /misc/bluetooth
+fi
+#copy bluetooth so
+if [ ! -e /data/misc/bluedroid/bt_stack.conf ]; then
+	echoh "copy bt_stack.conf in rc5"
+	cp -rf /etc/bluetooth/bluedroid/bt_stack.conf /data/misc/bluedroid/bt_stack.conf
+fi
+if [ ! -e /data/misc/bluedroid/bt_did.conf ]; then
+	echoh "copy bt_did.conf in rc5"
+	cp -rf /etc/bluetooth/bluedroid/bt_did.conf /data/misc/bluedroid/bt_did.conf
+fi
+sh /etc/bluetooth.script/bt_load_lib.sh
+
+
+#set SYN retry time to 2 for TCP connect()
+echo 2 > /proc/sys/net/ipv4/tcp_syn_retries
+echo "no lg modify tcp syn retries 2"
+
+#start ssh
+mkdir -p /var/empty
+mkdir -p /var/local/misc/sshd
+#/usr/local/sbin/sshd -p 22 &
+
+
+
+/sbin/netinfd &
+/sbin/ipcd &
+# sh /usr/local/bin/eprun.sh
+# sh /usr/local/bin/sigma/scripts/start.sh
+
+#
+# Kernel modules
+#
+if [ ]; then 
+#if [ "`grep microbe /etc/init.d/run_bdpprog.sh`" != "" ]; then
+#    sh /etc/init.d/ko_insert_2 
+#else
+   	sh /etc/init.d/ko_insert_1
+#fi
+
+fi 
+
+if [  ]; then
+    MODULE_DIR=/lib/modules/`uname -r`/BDP
+    MODULE_KOS="cdrom.ko libata.ko sata_mt85xx_mod.ko sr_mod.ko"
+    for MODULE_KO in $MODULE_KOS; do
+        echo "insert module ${MODULE_DIR}/${MODULE_KO}"
+        insmod ${MODULE_DIR}/${MODULE_KO}
+        if [ $? -ne 0 ]; then
+            echo "insert module ${MODULE_DIR}/${MODULE_KO} FAIL..."
+        else    
+            echo "insert module ${MODULE_DIR}/${MODULE_KO} SUCCESS..."
+        fi
+    done
+fi
+
+
+
+
+if [ -e /etc/init.d/rcS.custom ]; then
+  sh /etc/init.d/rcS.custom || exit $?
+fi
+
+#drop_cache &
+
+#/usr/local/bin/cliprog
+
+##spotify connect
+#if [ ! -d /var/run/dbus ]; then 
+#    mkdir -p /var/run/dbus
+#fi
+#if [ ! -d /var/run/avahi-daemon ];then
+#    mkdir -p /var/run/avahi-daemon
+#fi
+#if [ -f /var/run/dbus/pid ];then
+#    rm -f /var/run/dbus/pid
+#fi
+#if [ -f /var/run/avahi-daemon/pid ];then
+#    rm -f /var/run/avahi-daemon/pid
+#fi
+#/bin/dbus-daemon --system --print-pid --print-address &
+#/sbin/avahi-daemon &
+##spotify
+
+##start mdns
+/usr/sbin/mdnsd &
+##start mdns
+
+
+
+
+
+intr_check &
+
+echo "bdpprog start!!!"
+bdpprog
+RES=$?
+echo "bdpprog result:$RES" | tee /$RES
+if [ $RES -eq 2 ]; then
+  killall lircd_simulator
+  #killall endpoint
+  poweroff
+elif [ $RES -eq 3 ]; then
+  killall lircd_simulator
+  reboot
+elif [ $RES -eq 4 ]; then
+  sh /etc/init.d/upg_1.sh
+elif [ $RES -eq 15 ]; then
+  sh /etc/init.d/upg_15.sh
+elif [ $RES -eq 5 ]; then
+  poweroff
+elif [ $RES -eq 6 ]; then
+  reboot
+elif [ $RES -eq 7 ]; then
+  sh /etc/init.d/upg_micro_be.sh
+elif [ $RES -eq 11 ]; then
+  killall lircd_simulator
+  sh /etc/init.d/upg_ubi.sh
+fi
+
+
+
+
+
+
+
+
+
+echo "=rc5 End="
+exit 0

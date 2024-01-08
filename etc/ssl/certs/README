@@ -1,0 +1,19 @@
+Generated from google3/security/cacerts/mozilla/.
+Renamed to ca-certificates.crt
+_______________________________________________________________________________
+NOTE: Google Internal Authority G2 (google-internet-authority-g2.crt)
+This was added because BirdSong (for voice calling) doesn't send the full
+certificate chain.
+ 
+INFO
+_______________________________________________________________________________
+> blaze build //security/cacerts:gen_mozilla_https_roots
+Output: //security/cacerts/roots.pem
+
+This set contains certificates that are publicly trusted as part of the Mozilla
+Root Program, which is the underlying root program that both Android and Chrome
+participate in. It is suitable for clients that want to validate HTTPS
+certificate chains served by properly configured HTTPS servers.
+
+This target is expected to update one or two times a quarter / four to eight
+times a year.

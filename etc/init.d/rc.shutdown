@@ -1,0 +1,108 @@
+#! /bin/sh
+
+#################################################
+#																								#
+#				Sequence of power down script						#
+#																								#
+#################################################
+
+echo "=== System Down Start ==="
+
+#
+#	Kill processes
+#
+
+#killall bdpprog
+#killall -KILL bdpprog
+
+if [ $? -ne 0 ]; then
+        echo ------------------------------------------------
+        echo BDPProg is not killed successfully
+        echo ------------------------------------------------
+        exit 1
+fi
+   
+#killall lircd   
+
+killall ipcd
+if [ $? -ne 0 ]; then
+        echo ------------------------------------------------
+        echo ipcd is not killed successfully
+        echo ------------------------------------------------
+fi
+
+killall netinfd
+
+#
+#	Umount filesystems
+#
+
+#umount -a
+umount /mnt/disc_00_0
+umount /mnt/sda1
+umount /proc/bus/usb
+
+echo "umount ubi file system start"
+sync
+umount /mnt/ubi_boot
+echo "umount ubi file system end"
+#
+#	Remove driver modules
+#
+MODULE_DIR=/lib/modules/`uname -r`/BDP
+MODULE_KOS="usb-storage.ko mtk_hcd.ko usbcore.ko usb-common.ko mu3h.ko sr_mod.ko sata_mt85xx_mod.ko libata.ko cdrom.ko udf.ko isofs.ko msdos.ko vfat.ko fat.ko tntfs.ko nls_utf8.ko nls_iso8859-1.ko nls_ascii.ko nls_cp437.ko nls_base.ko splitter.ko"              
+
+
+for MODULE_KO in $MODULE_KOS; do
+    echo "remove module ${MODULE_KO}"
+    rmmod ${MODULE_KO}
+    
+    if [ $? -ne 0 ]; then
+        echo "remove module ${MODULE_KO} FAIL..."
+#        exit 1
+		else
+				echo "remove module ${MODULE_KO} SUCCESS..."
+    fi
+    
+    
+done
+
+#
+#	Insert power down module
+#
+MODULE_POWER_DOWN="pdown.ko"
+insmod ${MODULE_DIR}/${MODULE_POWER_DOWN}
+if [ $? -ne 0 ]; then
+        echo ------------------------------------------------
+        echo Pdown module is inserted successfully
+        echo ------------------------------------------------
+        exit 1
+fi
+echo "insert module ${MODULE_DIR}/${MODULE_POWER_DOWN}"
+
+MODULE_KOS="pdown.ko inflate.ko bdpdrv1.ko drvuart.ko rm.ko cbagent.ko kmem.ko osai.ko drvcli.ko decry.ko tz.ko drv_mem.ko bsp.ko dbg_utility.ko"
+for MODULE_KO in $MODULE_KOS; do
+    echo "remove module ${MODULE_KO}"
+    rmmod ${MODULE_KO}
+    
+    if [ $? -ne 0 ]; then
+        echo "remove module ${MODULE_KO} FAIL..."
+        exit 1
+		else
+				echo "remove module ${MODULE_KO} SUCCESS..."
+    fi
+
+done
+
+echo "Ready to executing"
+
+#
+#	Execute shutdown
+#
+
+/sbin/poweroff
+
+
+
+
+

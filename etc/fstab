@@ -1,0 +1,4 @@
+proc /proc proc defaults 0 0
+sysfs /sys sysfs defaults 0 0
+usbfs /proc/bus/usb usbfs defaults 0 1
+none  /dev/shm tmpfs defaults 0 0

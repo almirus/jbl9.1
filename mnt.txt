@@ -1,0 +1,2 @@
+sda1
+ubi_boot

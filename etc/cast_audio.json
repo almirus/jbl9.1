@@ -1,0 +1,12 @@
+{
+  "postprocessors": {
+    "output_streams": [{
+      "streams": [ "default" ],
+      "processors": [{
+        "processor": "libcast_equalizer_1.0.so",
+        "name": "equalizer",
+        "config": {}
+      }]
+    }]
+  }
+}

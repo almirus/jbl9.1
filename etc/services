@@ -1,0 +1,8 @@
+telnet		23/tcp
+telnet		23/udp
+ntp       123/tcp
+ntp       123/udp
+tftp      69/tcp
+tftp      69/udp
+domain      53/tcp
+domain      53/udp

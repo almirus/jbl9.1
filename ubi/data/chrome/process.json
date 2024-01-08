@@ -1,0 +1,255 @@
+[
+  { "name": "update_engine",
+    "command": [
+      "${DIR_EXE}/update_engine",
+      "--foreground",
+      "--netif-for-unique-ids=eth0",
+      "--ota-directory=/chrome/cache/",
+      "--update-engine-unix-socket-path=${DIR_TEMP}/socket/updater",
+      "--v=4" ],
+    "dirs": [ "${DIR_TEMP}/socket", "${DIR_HOME}/metrics" ],
+    "sockets": [ "${DIR_TEMP}/socket/updater" ],
+    "external_flags": [
+      { "name": "netif-for-unique-ids",
+        "value_expression": "<netif name>",
+        "description": "Netif name to generate unique identifiers including SSDP UDN. If it is an empty string, the first non-loopback netif is used even when it is inactive. (default=mlan0 for arm, \"\" for other systems)",
+        "recommendation": "Partners should set this value to a network interface with a unique MAC address."
+      },
+      { "name": "omaha-prod-app-id",
+        "value_expression": "<string>",
+        "description": "Overrides the omaha update app id in stable-channel. The format is \"{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}\"",
+        "recommendation": "Partners should only use this flag with special instructions from Google."
+      },
+      { "name": "ota-directory",
+        "value_expression": "<path>",
+        "description": "Directory to save OTA and tmp file. (default=/chrome/cache)",
+        "recommendation": "Partners can set this if they do not want to use the default /chrome/cache directory for Cast OTA files."
+      }
+    ]
+  },
+  { "name": "crash_uploader",
+    "command": [ "${DIR_EXE}/crash_uploader" ],
+    "dirs": [ "${DIR_HOME}/minidumps" ]
+  },
+  { "name": "cast_shell",
+    "command": [
+      "${DIR_EXE}/cast_shell",
+      "--accept-resource-provider=true",
+      "--alsa-enable-upsampling=false",
+      "--app-config-path=/fakeapp.conf",
+      "--blink-platform-log-channels=Media",
+      "--cast-control-unix-socket-path=/tmp/cast-control",
+      "--default-eureka-name-prefix=Google Cast Speaker ",
+      "--disable-dial=true",
+      "--enable-background-apps=false",
+      "--idle-screen=false",
+      "--js-flags=--trace_gc",
+      "--netif-for-unique-ids=eth0",
+      "--no-daily-reboot=true",
+      "--ota-directory=/chrome/cache/",
+      "--setup-ssid-suffix=l001",
+      "--setup-support-guest-mode=0",
+      "--skip-gpu-data-loading",
+      "--update-engine-unix-socket-path=${DIR_TEMP}/socket/updater",
+      "--vmodule=*chromecast/media/cma/*=2,*chromecast/browser/media/*=2,*chromecast/renderer/media/*=2,*media/mojo/*=2,*third_party/WebKit/Source/core/html/HTMLMediaElement.cpp=2,*third_party/WebKit/Source/modules/mediasource/*=2"
+    ],
+    "service_type": "critical",
+    "external_flags": [
+      { "name": "accept-resource-provider",
+        "value_expression": "true|false",
+        "description": "Platform controls resources through lib cast control. (default=false, which grants all resources to cast_receiver)",
+        "recommendation": "Partners should set this flag in order to support multiple protocols sharing the same hardware with Google Cast. This flag implies --alsa-check-close-timeout=0, and should be set in conjunction with --cast-control-unix-socket-path=<same path as passed to libcastcontrol>."
+      },
+      { "name": "alsa-check-close-timeout",
+        "value_expression": "<ms>",
+        "description": "Time in ms to wait before closing the PCM handle when no more mixer inputs remain. (default=2000ms)",
+        "recommendation": "Partners should set this value to 0 if they also enable --accept-resource-provider."
+      },
+      { "name": "alsa-enable-upsampling",
+        "value_expression": "true|false",
+        "description": "Resample audio with sample rates deemed to be too low.",
+        "recommendation": "Partners should set this value to false if CPU load is too high."
+      },
+      { "name": "alsa-output-avail-min",
+        "value_expression": "<frames>",
+        "description":  "Minimum number of available frames for scheduling a transfer. (default=ALSA period size)",
+        "recommendation": "Partners likely do not need to change this value."
+      },
+      { "name": "alsa-output-buffer-size",
+        "value_expression": "<frames>",
+        "description": "Size of the ALSA output buffer in frames. This directly sets the latency of the output device. Latency can be calculated by multiplying the sample rate by the output buffer size. (default=4096 frames)",
+        "recommendation": "Partners should consider changing this value if they run into underrun problems. If the buffer size is increased, the ALSA output start threshold should also be increased. Increasing this value too much can lead to significant user-perceivable latency."
+      },
+      { "name": "alsa-output-device",
+        "value_expression": "<name string>",
+        "description": "The Alsa device to use when opening an audio stream. (default=\"default\")",
+        "recommendation": "Partners should set this to the name of their ALSA output device if it isn't \"default\"."
+      },
+      { "name": "alsa-output-period-size",
+        "value_expression": "<frames>",
+        "description": "Size of the ALSA output period in frames. The period of an ALSA output device determines how many frames elapse between hardware interrupts. (default=ALSA output buffer size / 16)",
+        "recommendation": "Partners should consider changing this value in case of high CPU usage due to servicing interrupts or specific hardware buffer-size constraints."
+      },
+      { "name": "alsa-output-start-threshold",
+        "value_expression": "<frames>",
+        "description": "How many frames need to be in the output buffer before output starts. (default=(ALSA buffer size / ALSA period size) * ALSA period size)",
+        "recommendation": "Partners can adjust this to ensure the ALSA output buffer is fuller before playback starts in order to help prevent underruns."
+      },
+      { "name": "av-settings-alsa-mixer-card-name",
+        "value_expression": "<name string>",
+        "description": "Name of the card the volume control mixer should be opened on. (default=\"default\" or --alsa-output-device if supplied)",
+        "recommendation": "Partners should set this if they are using a mixer card which is different from their --alsa-output-device card."
+      },
+      { "name": "av-settings-alsa-mixer-element-name",
+        "value_expression": "<name string>",
+        "description": "Name of the simple mixer control element that the ALSA-based A/V Settings module should use to control the volume. (default=\"Master\")",
+        "recommendation": "Partners should set this to the name of their ALSA mixer element that controls system volume."
+      },
+      { "name": "av-settings-alsa-mute-card-name",
+        "value_expression": "<name string>",
+        "description": "Name of the card the mute mixer should be opened on. (default=the same value as --av-settings-alsa-mixer-card-name)",
+        "recommendation": "Partners should set this if they are using a mute card which is different from their --av-settings-alsa-mixer-card-name card and --alsa-output-device card."
+      },
+      { "name": "av-settings-alsa-mute-element-name",
+        "value_expression": "<name string>",
+        "description": "Name of the simple mixer control element that the ALSA-based A/V Settings module should use to mute the system. (default=\"Mute\")",
+        "recommendation": "If partners implement a mute control separately from their playback volume control (e.g. with softvol) they can provide the name of that control through this flag."
+      },
+      { "name": "cast-control-unix-socket-path",
+        "value_expression": "<path>",
+        "description": "Unix domain socket path name for the libcastcontrol library to connect cast shell. If it is empty, cast shell doesn't accept cast control connection. (default=\"\")",
+        "recommendation": "If partners are using --accept-resource-provider, they should provide this flag with the name of the unix domain socket they passed to libcastcontrol."
+      },
+      { "name": "config-app-download-server-url",
+        "value_expression": "<url>",
+        "description": "Only for testing purpose.",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "config-download-server-url",
+        "value_expression": "<url>",
+        "description": "Only for testing purpose.",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "default-eureka-name-prefix",
+        "value_expression": "<prefix string>",
+        "description": "Prefix used to create default device name. (default=the model name of the device, for example, \"Chromecast\" for Chromecast)",
+        "recommendation": "Partners should change this name to be a user-friendly default device name. The default device name is used for Cast discovery after Cast is enabled on the device."
+      },
+      { "name": "default-master-volume-step-interval",
+        "value_expression": "<floating point number>",
+        "description": "Sets master volume step interval. (default=0.02)",
+        "recommendation": "Partners may customize the volume step interval."
+      },
+      { "name": "disable-dial",
+        "value_expression": "true|false",
+        "description": "Disables DIAL. This flag is to be used in the case that we want to disable v1 App while also enabling Chromecast Utility to find the device.",
+        "recommendation": "Partners should only enable this flag if they are using Google's Fling app for debugging over HTTP."
+      },
+      { "name": "disable-web-security",
+        "description": "Only for testing purpose.",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "enable-background-apps",
+        "value_expression": "true|false",
+        "description": "Allows apps to be prelaunched in background mode. (default=true)",
+        "recommendation": "Partners are recommended to enable this flag unless their device has significant memory constraints."
+      },
+      { "name": "enable-hi-res-audio-support",
+        "value_expression": "true|false",
+        "description": "Report high-resolution audio support. (default=false)",
+        "recommendation": "Partners should enable this flag if the product supports 96kHz 24-bit audio playback and the rest of the hi-res audio requirements outlined in the CDD."
+      },
+      { "name": "enable-multizone",
+        "value_expression": "true|false",
+        "description": "Enable synchronized audio playback on multiple devices. (default=false)",
+        "recommendation": "Partners can enable this flag for testing the multi-room feature, but should keep it false as long as the product doesn't publicly support Cast Multi-room."
+      },
+      { "name": "idle-screen",
+        "value_expression": "true|false",
+        "description": "Disable idle screen if it's not needed. Enable idle screen by setting it to \"true\" and disable idle screen by setting it to \"false\". (default=true)",
+        "recommendation": "Partners should not change the default value."
+      },
+      { "name": "ignore-certificate-errors",
+        "description": "Only for testing purpose.",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "multizone-error-correction-threshold-us",
+        "value_expression": "<microseconds>",
+        "description": "The threshold in microseconds for error correction during multizone playback. (default=50)",
+        "recommendation": "Partners may set this if needed."
+      },
+      { "name": "netif-for-unique-ids",
+        "value_expression": "<netif name>",
+        "description": "Netif name to generate unique identifiers including SSDP UDN. If it is an empty string, the first non-loopback netif is used even when it is inactive. (default=mlan0 for arm, \"\" for other systems)",
+        "recommendation": "Partners should set this value to a network interface with a unique MAC address."
+      },
+      { "name": "no-daily-reboot",
+        "value_expression": "true|false",
+        "description": "Disable daily reboot initiated by cast receiver. (default=true)",
+        "recommendation": "Partners should not change the default value."
+      },
+      { "name": "no-wifi",
+        "description": "Only for testing purpose.",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "opencast-server-url",
+        "value_expression": "<url>",
+        "description": "Only for testing purpose.",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "ota-directory",
+        "value_expression": "<path>",
+        "description": "Directory to save OTA and tmp file. (default=/chrome/cache)",
+        "recommendation": "Partners can set this if they do not want to use the default /chrome/cache directory for Cast OTA files."
+      },
+      { "name": "register-pepper-plugins",
+        "value_expression": "<path>;<mime-type>",
+        "description": "Register Pepper plugins (see pepper_plugin_list.cc for its format)",
+        "recommendation": "Partners should only use this flag to enable Spotify through Google Cast (e.g. --register-pepper-plugins=/system/chrome/plugins/libspotify.so;application/x-spotify)."
+      },
+      { "name": "setup-ssid-suffix",
+        "value_expression": "<up to 4-char string>",
+        "description": "ID for Google Cast app to identify devices. For OEM devices, this ID has come from Google registry through TAMs."
+      },
+      { "name": "setup-support-guest-mode",
+        "value_expression": "0|1",
+        "description": "To disable guest mode related setup UI. This is only for OEM devices that have CDD exemption to launch without guest mode. (if device supports hotspot or ble, default=1, otherwise, default=0)"
+      },
+      { "name": "show-fps-counter",
+        "description": "Only for testing purpose.",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "vmodule",
+        "value_expression": "<vmodule format>",
+        "description": "Used to selectively specify which modules log verbosely by default. More details at https://www.chromium.org/for-testers/enable-logging",
+        "recommendation": "Partners should not set this flag."
+      },
+      { "name": "wpa-supplicant-unix-socket-path",
+        "value_expression": "<path>",
+        "description": "Unix domain socket path name to connect to wpa_supplicant daemon. (default=/dev/socket/wpa_mlan0)",
+        "recommendation": "Setting this flag will have no impact until Partner setup through the Cast app is supported."
+      }
+    ]
+  },
+  { "name": "process_manager",
+    "command": [ "${DIR_EXE}/process_manager" ],
+    "external_flags": [
+      { "name": "log-wrapper-path",
+        "value_expression": "<path>",
+        "description": "Path of logwrapper binary used to store log messages from child processes. If it is not empty, cast_cli and process_manager launch log wrapper with child process arguments, then logwrapper launches the actual child process. If it is empty, cast_cli and process_manager launch child process directly. (default=/bin/logwrapper)",
+        "recommendation": "Partners can set this flag for integrating Cast logging to their logging system. It is recommended to keep the default value."
+      },
+      { "name": "reboot-executable-path",
+        "value_expression": "<program_path>",
+        "description": "Path for executable that process manager will call when it wants a system reboot to occur.",
+        "recommendation": "If partners want to all Cast to reboot the system (not recommended), they can set the correct program path through this flag."
+      },
+      {
+        "name": "reboot-watchdog-socket-path",
+        "value_expression": "<unix_socket_path>",
+        "description": "Path for unix socket for watchdog process that process manager will when when it wants a system reboot to occur. (default=/dev/socket/watchdog)",
+        "recommendation": "Partners should set this flag so that the Cast process manager can trigger a system reboot in the event the Cast software gets in a crash loop."
+      }
+    ]
+  }
+]

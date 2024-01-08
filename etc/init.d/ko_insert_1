@@ -1,0 +1,22 @@
+#! /bin/sh
+
+#
+# Kernel modules
+#
+
+    MODULE_DIR=/lib/modules/`uname -r`/BDP
+    MODULE_KOS="nls_base.ko nls_cp437.ko nls_ascii.ko nls_iso8859_1.ko nls_utf8.ko fat.ko vfat.ko msdos.ko isofs.ko udf.ko ntfs.ko usb-common.ko usbcore.ko mtk_hcd.ko usb-storage.ko hid.ko usbhid.ko cdrom.ko libata.ko sr_mod.ko af_packet.ko sata_mt85xx_mod.ko"
+    
+	
+	
+    for MODULE_KO in $MODULE_KOS; do
+        echo "insert module ${MODULE_DIR}/${MODULE_KO}"
+        insmod ${MODULE_DIR}/${MODULE_KO}
+        if [ $? -ne 0 ]; then
+            echo "insert module ${MODULE_DIR}/${MODULE_KO} FAIL..."
+        else
+            echo "insert module ${MODULE_DIR}/${MODULE_KO} SUCCESS..."
+        fi
+    done
+
+

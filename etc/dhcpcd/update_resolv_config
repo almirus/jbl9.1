@@ -1,0 +1,134 @@
+#!/bin/sh
+
+resolv_conf=/etc/resolv.conf
+
+#
+# Filter out type of dns servers specified as parameters
+# Parameters: $1: "ipv4" or "ipv6" - specify the interested type
+#             $2, $3, ... - specify the servers to filter from
+# Output: list of interested type of servers
+filter_servers()
+{
+    test "$#" -ge 1 || return
+
+    local server_type=$1
+    shift
+
+    local output_servers=""
+    for server in $*; do
+        if test "$(check_server_type $server)" = "$server_type"; then
+            output_servers="$output_servers $server"
+        fi
+    done
+
+    echo "$output_servers"
+}
+
+#
+# Check dns server type
+# Parameters: $1, $2, ... - a list of dns server with the same type
+# Output: "ipv4" - the list of dns servers are IPV4 servers
+#         "ipv6" - the list of dns servers are IPV6 servers
+check_server_type()
+{
+    case "$*" in
+        *:*)
+            echo "ipv6"
+            ;;
+        *)
+            echo "ipv4"
+            ;;
+    esac
+}
+
+#################################################################
+# This script will update /etc/resolv.conf with the following
+# algorithm:
+#
+# step 1)
+#     If property "disable_google_dns" is NOT true,
+#     Google public DNS servers 8.8.8.8 and 2001:4860:4860::8888
+#     will be written at the begining of the file as primary servers
+#
+# step 2)
+#     DNS servers from DHCP or SLAAC RDNSS are added between
+#     "# Dynamic DNS Start" and "# Dynamic DNS End"
+#     If the to-add dns server is IPv4 server, it will be written
+#     first. Then IPv6 servers in current /etc/resolv.conf, between
+#     "# Dynamic DNS Start" and "# Dynamic DNS End", will be
+#     written afterwards
+#
+#     Else, i.e. the to-add dns server is IPv6 server, IPv4 servers
+#     in current /etc/resolv.conf, between "# Dynamic DNS Start"
+#     and "# Dynamic DNS End", will be written first followed by the
+#     to-add IPv6 dns server.
+#
+# step 3)
+#     If property "disable_google_dns" is NOT true,
+#     Google public DNS servers 8.8.4.4 and 2001:4860:4860::8844
+#     will be written at the end of the file as backup servers
+###################################################################
+
+if test "$#" -ge 1; then
+    # $servers_to_add: input dns servers to be added
+    servers_to_add=$*
+    server_type=$(check_server_type $servers_to_add)
+
+    # $current_servers: dns servers currently in /etc/resolv.conf
+    current_servers=""
+    dynamic_dns=0
+    while read line; do
+        case "$line" in
+            *"Dynamic DNS Start"*)
+                dynamic_dns=1
+                ;;
+            *"Dynamic DNS End"*)
+                dynamic_dns=0
+                ;;
+            *)
+                key1=`echo $line | cut -d ' ' -f 1`
+                key2=`echo $line | cut -d ' ' -f 2`
+                if test "$key1" = "nameserver" -a "$dynamic_dns" = "1"; then
+                    current_servers="$current_servers $key2"
+                fi
+                ;;
+        esac
+    done < $resolv_conf
+
+    # if $servers_to_add are already in $current_servers, exit
+    new_server_found=false
+    for server in $servers_to_add; do
+        case "$current_servers" in
+            *${server}*)
+                ;;
+            *)
+                new_server_found=true
+                ;;
+        esac
+    done
+
+    test "$new_server_found" = "true" || exit
+
+    # new dns server found, start composing the dns servers
+    # $new_servers: new severs to be written into /etc/resolv.conf
+    disable_google_dns=`getprop disable_google_dns`
+    new_servers=""
+
+    if test "$server_type" = "ipv4"; then
+        # If $servers_to_add are IPv4 servers,
+        # insert these IPv4 servers first
+        new_servers="$new_servers $servers_to_add"
+        # insert IPv6 servers in $current_servers
+        new_servers="$new_servers $(filter_servers ipv6 $current_servers)"
+    else
+        # If $servers_to_add are IPv6 servers,
+        # insert IPv4 servers in $current_servers
+        new_servers="$new_servers $(filter_servers ipv4 $current_servers)"
+        # insert $servers_to_add
+        new_servers="$new_servers $servers_to_add"
+    fi
+
+    # edit resolv_config file
+    . /etc/dhcpcd/resolv_conf_func
+    edit_resolv_conf "$disable_google_dns" "$new_servers"
+fi

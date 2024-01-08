@@ -1,0 +1,7 @@
+info, udhcpc (v0.9.9-pre) started
+debug, Sending discover...
+debug, Sending select for 192.168.137.18...
+info, Lease of 192.168.137.18 obtained, lease time 604800
+deleting routers
+adding dns  192.168.137.1
+nameserver 192.168.137.1

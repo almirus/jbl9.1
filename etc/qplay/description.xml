@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0" xmlns:dlna="urn:schemas-dlna-org:device-1-0">
+ <specVersion>
+    <major>1</major>
+    <minor>0</minor>
+ </specVersion>
+ <device>
+    <deviceType>urn:schemas-upnp-org:device:MediaRenderer:1</deviceType>
+    <friendlyName> T</friendlyName>
+    <manufacturer>TCL</manufacturer>
+    <qq:X_QPlay_SoftwareCapability xmlns:qq="http://www.tencent.com">QPlay:2</qq:X_QPlay_SoftwareCapability>
+    <manufacturerURL>http://www.TCL.org</manufacturerURL>
+    <modelDescription>TonlyDMR</modelDescription>
+    <modelName>TonlyDMR</modelName>
+    <modelNumber>1.0</modelNumber>
+    <serialNumber>123456789</serialNumber>
+    <UDN>uuid:6cc4ef98-1dd2-11b2-81ce-88d03974897e</UDN>
+    <modelURL>http://www.TCL.org</modelURL>
+    <dlna:X_DLNADOC xmlns:dlna="urn:schemas-dlna-org:device-1-0">DMR-1.50</dlna:X_DLNADOC>
+    <serviceList>
+       <service>
+          <serviceType>urn:schemas-upnp-org:service:RenderingControl:1</serviceType>
+          <serviceId>urn:upnp-org:serviceId:RenderingControl</serviceId>
+          <SCPDURL>/service/renderingcontrol.xml</SCPDURL>
+          <controlURL>/service/renderingcontrol_control</controlURL>
+          <eventSubURL>/service/renderingcontrol_event</eventSubURL>
+       </service>
+       <service>
+          <serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+          <serviceId>urn:upnp-org:serviceId:ConnectionManager</serviceId>
+          <SCPDURL>/service/connectionmanager.xml</SCPDURL>
+          <controlURL>/service/connectionmanager_control</controlURL>
+          <eventSubURL>/service/connectionmanager_event</eventSubURL>
+       </service>
+       <service>
+          <serviceType>urn:schemas-upnp-org:service:AVTransport:1</serviceType>
+          <serviceId>urn:upnp-org:serviceId:AVTransport</serviceId>
+          <SCPDURL>/service/avtransport.xml</SCPDURL>
+          <controlURL>/service/avtransport_control</controlURL>
+          <eventSubURL>/service/avtransport_event</eventSubURL>
+       </service>
+       <service>
+          <serviceType>urn:schemas-tencent-com:service:QPlay:2</serviceType>
+          <serviceId>urn:tencent-com:serviceId:QPlay</serviceId>
+          <SCPDURL>/service/qplay.xml</SCPDURL>
+          <controlURL>/service/qplay_control</controlURL>
+          <eventSubURL>/service/qplay_event</eventSubURL>
+       </service>
+    </serviceList>
+ </device>
+</root>

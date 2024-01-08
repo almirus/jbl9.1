@@ -1,0 +1,19 @@
+Copyright (C) 1994-2009, Thomas G. Lane, Guido Vollbeding.
+This file is part of the Independent JPEG Group's software.
+For conditions of distribution and use, see the accompanying README file.
+
+
+This file describes how to use the IJG JPEG library within an application
+program.  Read it if you want to write a program that uses the library.
+
+The file example.c provides heavily commented skeleton code for calling the
+JPEG library.  Also see jpeglib.h (the include file to be used by application
+programs) for full details about data structures and function parameter lists.
+The library source code, of course, is the ultimate reference.
+
+Note that there have been *major* changes from the application interface
+presented by IJG version 4 and earlier versions.  The old design had several
+inherent limitations, and it had accumulated a lot of cruft as we added
+features while trying to minimize application-interface changes.  We have
+sacrificed backward compatibility in the version 5 rewrite, but we think the
+improvements justify this.

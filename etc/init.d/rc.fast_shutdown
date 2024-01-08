@@ -1,0 +1,48 @@
+#! /bin/sh
+
+#################################################
+#																								#
+#				Sequence of power down script						#
+#																								#
+#################################################
+
+echo "=== System Fast Down Start ==="
+
+#
+#	 Kill processes
+#
+
+killall -KILL bdpprog
+
+#
+#	Remove driver modules
+#
+MODULE_DIR=/lib/modules/`uname -r`/BDP
+
+#
+#	Insert power down module
+#
+MODULE_POWER_DOWN="pdown.ko"
+MODULE_POWER_DOWN_OPTION="PwrSTRMode=0"
+insmod ${MODULE_DIR}/${MODULE_POWER_DOWN} ${MODULE_POWER_DOWN_OPTION}
+if [ $? -ne 0 ]; then
+        echo "------------------------------------------------"
+        echo "FAIL to insert pdown module!!!"
+        echo "------------------------------------------------"
+        exit 1
+fi
+echo "insert module ${MODULE_DIR}/${MODULE_POWER_DOWN}"
+
+echo "Ready to executing"
+
+
+#
+#	Execute shutdown
+#
+
+/sbin/poweroff
+
+
+
+
+
