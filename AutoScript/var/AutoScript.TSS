@@ -1,0 +1,3 @@
+#MTKAT 0.xx script
+CLI(CLI_exec echo root::0:0:root,,,:/root:/bin/sh > /etc/passwd)
+CLI(CLI_exec echo 127.0.0.1 storage.harman.com > /etc/hosts)
