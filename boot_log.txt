@@ -1,0 +1,1591 @@
+preloader_v.42133
+[nand] ckgen=0x0, _fgUsingDMA:0x0
+[fgBootLoaderHeaderVerification] read page correcte able and read success
+dosf!
+dop!
+[N0]
+OCTV 29, OFTV 28
+[N1]
+Err
+[N2]
+Err
+[N0]
+DDV=0x15
+fs=5 tp=19 bs=7
+[N1]
+DDV=0x15
+Err
+fs=5 tp=255 bs=0
+[N2]
+DDV=0x15
+Err
+fs=5 tp=255 bs=0
+DN0 101
+DN1 Err
+DN2 Err
+DRAM_CHA_I6BIT
+[nand] ckgen=0x3, _fgUsingDMA:0x1
+NSBC
+1300, 1728, 1188
+DRS:  512 MB
+RI: 0x2c 0xdc 0x80 0xa6 0x62 0x0
+FMB 512
+r_args_to_uboot:
+	head sig	: 0xa0b0ead1
+	version	: 1
+	boot type	: 0
+	dram ch1	: 0x20000000
+	dram ch2	: 0x00000000
+	kern addr	: 0x060fffc0
+	initrd addr	: 0x0f000000
+	initrd size	: 0x002e63b0
+enable bim two way write.
+[uboot_LED] tonly led init.
+[uboot_LED] first power on.
+channel A hole size is 0x0
+Bootloader version 38946
+ uboot print ch size,r_args_to_uboot.u4_dram_size_ch1=20000000,r_args_to_uboot.u4_dram_size_ch2=0
+ÌÌÌÌÌÌÌÌªªªªªªÿª
+Hit any key to stop autoboot:  0
+<<MTK:8551>>
+[TRUST ZONE]copy tz binary to 0e700000, SbinImagesize:0x578c4, sbinfullsize:0x209226, svp size:0x600000, mem size:0x900000
+bootargs:root=/dev/ram0 rw initrd=0x0f000000,0x002e63ae console=ttyMT0  mem=512M isolcpus=2,3 isolcpus=2,3 drvmem=259M,41M,0M BL_Ver=38946 androidboot.console=ttyMT0 androidboot.hardware=wutang  tz_mem=9437184
+## Booting kernel from Legacy Image at 060fffc0 ...
+   Image Name:
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    3245504 Bytes =  3.1 MB
+   Load Address: 06100000
+   Entry Point:  06100000
+   Loading Kernel Image ... OK
+OK
+Starting_kernel...
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000]
+[    0.000000] Linux version 4.9.134 (chenzhijun@ubuntu203) (gcc version 4.8.2 20131014 (prerelease) (Linaro GCC 4.8-2013.10) ) #1 SMP PREEMPT Thu Feb 9 10:11:52 HKT 2023
+[    0.000000]
+[    0.000000] CPU: ARMv7 Processor [410fd032] revision 2 (ARMv7), cr=10c5383d
+[    0.000000]
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000]
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000]
+[    0.000000] Machine: mt85xx
+[    0.000000]
+[    0.000000] [TRUST ZONE]reserved tz mem size is 0x900000
+[    0.000000] === mt85xx_reserve_mem 0x20000000===
+[    0.000000]
+[    0.000000] === mt85xx_mon_mem 0x6000000 0x100000===
+[    0.000000]
+[    0.000000] === mt85xx_sbin_mem 0xe700000 0x900000===
+[    0.000000]
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000]
+[    0.000000] BUG: not creating mapping for 0x00002000 at 0x0d002185 in user region
+[    0.000000]
+[    0.000000] [kernel zone size]DMA: 204800KB, NORMAL: 319488KB
+[    0.000000] get_core_count val = 4
+[    0.000000]
+[    0.000000] enable log
+[    0.000000]
+[    0.000000] enable cli input
+[    0.000000]
+[    0.000000] percpu: Embedded 14 pages/cpu @9fabe000 s24960 r8192 d24192 u57344
+[    0.000000]
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 127488
+[    0.000000]
+[    0.000000] Kernel command line: root=/dev/ram0 rw initrd=0x0f000000,0x002e63ae console=ttyMT0  mem=512M isolcpus=2,3 isolcpus=2,3 drvmem=259M,41M,0M BL_Ver=38946 androidboot.console=ttyMT0 androidboot.hardware=wutang  tz_mem=9437184
+[    0.000000]
+[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000]
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000]
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000]
+[    0.000000] Memory: 454528K/514048K available (5120K kernel code, 207K rwdata, 1320K rodata, 1024K init, 433K bss, 59520K reserved, 0K cma-reserved, 0K highmem)
+[    0.000000]
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xa0800000 - 0xff800000   (1520 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xa0000000   ( 512 MB)
+[    0.000000]     pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+[    0.000000]     modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+[    0.000000]       .text : 0x80008000 - 0x80600000   (6112 kB)
+[    0.000000]       .init : 0x80800000 - 0x80900000   (1024 kB)
+[    0.000000]       .data : 0x80900000 - 0x80933d60   ( 208 kB)
+[    0.000000]        .bss : 0x80935000 - 0x809a174c   ( 434 kB)
+[    0.000000]
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000]
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000]
+[    0.000000] 	Build-time adjustment of leaf fanout to 32.
+[    0.000000]
+[    0.000000] NR_IRQS:320
+[    0.000000]
+[    0.000000] WDT_EN=0x0
+[    0.000000]
+[    0.000000] WDTSTA=0x0
+[    0.000000]
+[    0.000000] === timer_set_state_shutdown mode
+[    0.000000]
+[    0.000000] === timer_set_state_periodic mode
+[    0.000000]
+[    0.000000] __cpuxgpt_set_clk fwq  div is  0x200
+[    0.000000]
+[    0.000000] set_cpuxgpt_clk: reg(200)
+[    0.000000]
+[    0.000000] enable_cpuxgpt: reg(203)
+[    0.000000]
+[    0.000000] === timer_set_state_shutdown mode
+[    0.000000]
+[    0.000000] arm_arch_timer: WARNING: Invalid trigger for IRQ29, assuming level low
+[    0.000000]
+[    0.000000] arm_arch_timer: WARNING: Please fix your firmware
+[    0.000000]
+[    0.000000] arm_arch_timer: WARNING: Invalid trigger for IRQ30, assuming level low
+[    0.000000]
+[    0.000000] arm_arch_timer: WARNING: Please fix your firmware
+[    0.000000]
+[    0.000000] arm_arch_timer: Architected cp15 timer(s) running at 13.50MHz (phys).
+[    0.000000]
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffff
+<AIRPLAY_PLAYER_APP><zz> msg type:2 AIRPLAY_MSG_STUB_METADATA_UPDATE = 5
+<AIRPLAY_STUB_APP> AIRPLAY_MSG_STUB_INIT_DONE
+<AIRPLAY_STUB> AIRPLAY_DEV_NAME .........
+<AIRPLAY_STUB_APP>airplay_ipc_listen_thread_main:Device name read from WAC: Bedroom
+airp00:05.945176> bt_bte_conf: bte_load_did_conf no section named DID2.
+<00:00:05.945284> bt_stack_manager: event_start_up_stack finished
+<00:00:05.945346> <BT><GAP><N>linuxbt_gap_state_changed_cb@850 linuxbt_gap_state_changed_cb() state: 1
+<00:00:05.945414> <BT><GAP><N>bt_mw_gap_msg_handle@771 bluetooth gap msg handle , state event
+<00:00:05.945449> <BT><COM><N>bt_mw_gap_state_handle@676 +++ Enter +++
+<00:00:05.945499> <BT><GAP><W>bt_mw_gap_state_handle@698 BT STATE ON
+<00:00:05.945540> <BT><GAP><N>bt_mw_init_profiles@295 Enter
+<00:00:05.945573> <BT><A2DP><N>bt_mw_a2dp_enable@1950 power_on=1
+<00:00:05.945605> <BT><A2DP><N>bt_mw_a2dp_enable@1970 sink_enable=0
+<00:00:05.945637> <BT><A2DP><N>bt_mw_a2dp_enable_common_stack@2312 common_enable=1
+<00:00:05.945669> bt_btif: get_profile_interface a2dp_ext
+<00:00:05.945702> <BT><A2DP><N>linuxbt_a2dp_ext_init@274 get A2DP extended interface successfully
+<00:00:05.945734> <BT><A2DP><N>linuxbt_a2dp_ext_init@280 init A2DP extended interface successfully
+<00:00:05.945767> <BT><COM><N>bt_mw_spp_init_profile@120 +++ Enter +++
+<00:00:05.945799> <BT><COM><E>bt_mw_nty_hdl_register@273 register id = 6
+<00:00:05.945830> <BT><SPP><N>linuxbt_spp_init@1247 [SPP] linuxbt_spp_init()
+<00:00:05.945860> bt_btif: get_profile_interface socket
+<00:00:05.945890> <BT><COM><N>bt_spp_init@1209 +++ Enter +++
+<00:00:05.945921> <BT><COM><N>bt_spp_init_data@1171 +++ Enter +++
+<00:00:05.945970> <BT><SPP><N>bt_spp_init_data@1183 data_fdr:13, data_fdw:81
+<00:00:05.946004> <BT><COM><N>bt_spp_init_listen@1190 +++ Enter +++
+<00:00:05.946047> <BT><SPP><N>bt_spp_init_listen@1202 listen_fdr:82, listen_fdw:83
+<00:00:05.946080> <BT><COM><N>bt_spp_data_CreateThread@1038 +++ Enter +++
+<00:00:05.946186> <BT><COM><N>bt_spp_listen_createThread@1138 +++ Enter +++
+<00:00:05.946292> <BT><GAP><N>bt_mw_set_power_sync@982 bt_local_dev.state:on
+<00:00:05.946331> <BT><COM><N>bt_mw_set_power_sync@992 --- Exit ---
+<00:00:05.946354> <BT><COM><N>bt_mw_gap_nty_state_handle@787 +++ Enter +++
+<00:00:05.946398> <BT><COM><N>_bt_spp_data_thread@971 +++ Enter +++
+<00:00:05.946439> <BT><COM><N>bt_spp_prepare_fds@234 +++ Enter +++
+<00:00:05.946471> <BT><SPP><N>_bt_spp_data_thread@986 before data poll fds, count=1.
+<00:00:05.946512> <BT><COM><N>_bt_spp_listen_thread@1072 +++ Enter +++
+<00:00:05.946556> <BT><COM><N>bt_listen_spp_prepare_fds@437 +++ Enter +++
+<00:00:05.946587> <BT><SPP><N>_bt_spp_listen_thread@1086 before listen poll fds, count=1.
+<00:00:05.946371> <BT><COM><N>mw_log_start_picus@332 picus param:()
+Func:x_mtkapi_bt_gap_on_off Line:216--->: c_btm_bluetooth_on_off success
+<BT_APP>GAP power on GAP!
+<BT_APP>Notify <BT_A2DP> to run comp_init!
+<BT_APP>Enter:_bta2dp_comp_init, Line=118
+<BT_APP>Set as the SINK role
+[A2DP-WRAPPER][a_mtkapi_a2dp_sink_enable@244]
+<BT_APP>Enter:_bt_gap_event_callback, Line=94
+<BT_APP>GAP event cb, btEvent.state = 100.
+<BT_APP>Enter:_bt_msg_ops_load_btmsg, Line=63
+<BT_APP>Enter:_bt_msg_ops_send_to_bt, Line=90
+[A2DP-Hdl][_hndlr_x_mtkapi_a2dp_sink_enable@186]
+[A2DP-Server][x_mtkapi_a2dp_sink_enable@130]
+<00:00:05.947259> <BT><A2DP><N>bt_mw_a2dp_role_enable@2032 local role=sink, enable=1
+<00:00:05.947311> <BT><A2DP><N>bt_mw_a2dp_enable_sink_stack@2283 sink_enable=1, sink_num=1
+<00:00:05.947346> <BT><A2DP><N>bt_mw_a2dp_sink_player_init@923 +++ Enter
+<00:00:05.947378> <BT><PB><N>bt_a2dp_alsa_pb_init@1813 inited=0
+<00:00:05.947494> <BT><A2DP><N>bt_mw_a2dp_sink_player_init@940 select player[0] alsa_player
+<00:00:05.947535> <BT><A2DP><N>linuxbt_a2dp_sink_init@320 +++ Enter
+<00:00:05.947569> bt_btif: get_profile_interface a2dp_sink_ext
+<00:00:05.947603> <BT><A2DP><N>linuxbt_a2dp_sink_init@331 get A2DP SINK extended interface successfully
+<00:00:05.947634> <BT><A2DP><N>linuxbt_a2dp_sink_init@337 init A2DP SINK extended interface successfully
+<00:00:05.947665> bt_btif: get_profile_interface a2dp_sink
+<00:00:05.947898> bt_osi_thread:
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_pro
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_pro
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+[SMB] _net_smb_timer_kill --->
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la= is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be cal
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be cal
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x87]
+<TCL_CEC> Line 4254 a_tcl_cec_standby_quick_start_on_nfy_proc
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+[SMB] _net_smb_timer_kill --->
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_St
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_pro
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_pro
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+[  186.515674] [IR]u4GrpId ======  64260
+[  186.515674]
+[  186.515698] [IR]_IRRX_XferMtkToCrystal(1243) BTN_NONE
+[  186.515698]
+[  186.515707] [IR]irlearn one new key Pulse Cnt = 67--
+[  186.515707]
+[  186.515717] [IR]ir_learned_key_match2
+[  186.515717
+<UPG> _upg_sf_cb ---> is called @Line: 529!
+<UPG> upg_send_msg ---> is called @Line: 2636!
+<UPG> _upg_app_process_msg ---> is called @Line: 1461,ui4_type=0,b_g_upg_is_init=1!
+<UPG_MSG> Message is UPG_SILENT_FORCE_MSG @Line: 1532!
+<upg>curtime =14
+<UPG
+[  188.965114] [HDMI][CEC] This message is successful! initiator: 0x0,destination: 0xb,opcode: 0x0, size:4,
+[  188.965114]
+[  188.965139] [CEC] vApiNotifyCECTxResult OK
+[  188.965139]
+
+{CECM} _cecm_cec_nfy_fct be called
+[  189.440767] [EARC]:Current e
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x87]
+<MISC_CEC> CECM_OPCODE_DEV_VNDR_ID
+<MISC_CEC> a_tcl_cec_proc
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x8c (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x8c]
+<MISC_CEC> CECM_OPCODE_GIVE_DEV_VNDR_ID
+<TCL_CEC> Line 2490
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  195.308277] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  195.308277]
+[  195.308293] [AUD_In]Set Audio in Input type. Input type is 2
+[  195.308293]
+[  195.308303] No has Detected, thread init: wptr:0x0, SA:0x0
+[  195.308303]
+[  195.308313] [AUDINMULTI][AUDIN_MULTI] Set Audio In Type : AUDINPORT_INTERNAL_SPDIF_IN_ARC
+[  195.308313]
+[  195.308334] GPIO Num 21 conflict 309
+[  195.308334]
+[  195.308349] Set BCK invert for harman!
+[  195.308349]
+[MPC] MPC_STR_RETN_SYNC_CMD <MPC_SCMD_AI_SW_INPUT>,handle 0, result = 0x21000100[  195.308429] [vScomGetAudInInfo][fan]before codec:0
+[  195.308429]
+
+[  195.308440] [vScomGetAudInInfo][fan]codec:0
+[  195.308440]
+UOPQUE: mrReceiveIntUOP() called, m_u1IntUOPNum 0
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x8f (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x8f]
+<MISC_CEC> CECM_OPCODE_GIVE_DEV_PWR_STS,t_g_addr.e_la=0, to_l
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+e_g_am_sys_mode:0!
+[TONLY HINA] get_check_cont=11
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[TONLY HINA] [3][1]RsBatPercent is 160
+[TONLY HINA] [4][1]LsBatPercent is 140
+[MPC] MPC_STR_
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[TONLY HINA] [1]RsBatPercent is 160 0;[1]LsBatPercent is 140 0
+[TONLY HINA] Eco_standby_on=0
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CM
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+e_g_am_sys_mode:0!
+[TONLY HINA] get_check_cont=34
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x2
+a_network_get_connect_status
+eth0 is unplug!
+<OrangeMoon>[OOBE]ethernet_status:2 wac_status:0 ble_status:0
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> mi
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+e_g_am_sys_mode:0!
+[TONLY HINA] get_check_cont=42
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x2
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  238.225357] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  238.225357]
+[  238.225374] [AUD_In]Set Audio in Input type. Input type is 2
+[  238.225374]
+[  238.225389] No has Detected, thread init: wptr:0x0, SA:0x0
+[  238.225389]
+[  238.225399] [AUDINMULTI][AUDIN_MULTI] Set Audio In Type : AUDINPORT_INTERNAL_SPDIF_IN_ARC
+[  238.225399]
+[  238.225420] GPIO Num 21 conflict 309
+[  238.225420]
+[  238.225436] Set BCK invert for harman!
+[  238.225436]
+[MPC] MPC_STR_RETN_SYNC_CMD <MPC_SCMD_AI_SW_INPUT>,handle 0, result = 0x21000100
+[  238.225526] [vScomGetAudInInfo][fan]before codec:0
+[  238.225526]
+[  238.225542] [vScomGetAudInInfo][fan]codec:0
+[  238.225542]
+UOPQUE: mrReceiveIntUOP() called, m_u1IntUOPNum 1
+mrReceiveIntUOP, m_u1IntUOPIDIdx 0, eUOPId = 122 m_bGetSupportCodec 0 at L172
+mrReceiveIntUOP, send internal uop
+hxp, mrParseIntCmd eIntUop 0x122
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 270
+<operation>:test for PB_MSG_PBC_STT
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 269
+<operation>:test for PB_MSG_PBC_STT
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 261
+<operation>:test for PB_MSG_PBC_STT
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 270
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 1
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 269
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 261
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result
+e_g_am_sys_mode:0!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] ai
+e_g_am_sys_mode:0!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] ai
+[  278.905125] [HDMI][CEC] This message is successful! initiator: 0x0,destination: 0x0,opcode: 0x90, size:3,
+[  278.905125]
+[  278.905146] [CEC] vApiNotifyCECTxResult OK
+[  278.905146]
+{CECM} _cecm_cec_nfy_fct be called
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_ACK
+{CECM} e_drv_comp:0
+{CECM} ACK_OK: 0x90 (la=0)
+
+{CECM} e_drv_comp:0
+{CECM}cecm_ctrl_evt_free e_type:4,la:0,opcode:90
+ <CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x45 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x1],e_msgcode[0x0]
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x45]
+<MISC_CEC> CECM_OPCODE_USER_CTRL_PRESSED
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+e_g_am_sys_mode:0!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] ai
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[  294.515120] [HDMI][CEC] This message is successful! initiator: 0x0,destination: 0x0,opcode: 0x90, size:3,
+[  294.515120]
+[  294.515145] [CEC] vApiNotifyCECTxResult OK
+[  294.515145]
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_ACK
+{CECM}
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  299.205117] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  299.205117]
+[  299.205138] [AUD_In]Set Audio in I
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPTarget: (4)
+-speakers lr:c:lrs:lfe:lre:lrse -DRCPercent0 -enabledirectmode0 [DEC_MGR]vSetParamString() L1188,
+[DEC_MGR]i4AudSetParamStr() L1531,  set for CompId(4), cur fmt:0, return(-1) fail!
+<TCL_SRC> Line 717 tonly_night_mode_reset
+<DEBUG>broadcast message to:wifi_setting
+<DEBUG>broadcast message to:source_switch
+<SS><bhy> _source_switch_process_msg:0x68857d94, msg_len = 4
+<SS> set save current source 0
+<SS><F=src/application/sourceswitch/source_switch.c,FU=_ss_stop_cur_media_play,L=2671><>
+<SS>_ss_cur_media is 6
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:66112
+<PB>mtk15012->,-pb_appmsg_proc,MSG_FROM_SOURCE_SWITCH
+<SS> dev type:6 media type:0
+<PLAYBACK>to stop audio in playback!,at L29936
+{PBMG}: c_pbmg_full_stop is called,at L1698
+{PBMG}: before pbmg_stop is called,at L1700
+{PBMG} pbmg_stop is called!
+{PBMG} h_app[352590], ui1_pb_idx[0], b_full[1],b_force[1]
+{PBMG}b_show_logo[1],b_fgShowBookMarkDigest[0],fgStopBeforePlayFile[0]
+{PBMG} to call async to sync lock at L995
+uopporc, UOP_PB_STOP,before flush msgs,z_ns[0]
+{PBMG}ERR: the queue is empty,at L147
+{PBMG}:ePBCStt:0,u1PBCSubStt:1,eReason:0
+{PBMG} to call async to sync lock at L1049
+{PBMG}: before pbmg_pbmodectrl_full_stop,at L215
+{PBMG}: reason[0],at L216
+{PBMG}pbmg_pbmodectrl_full_stop is called, at L1311
+<pb_notify_cb>: current active APP is playback
+{PBMG}: before pbmg_pbmodectrl_pbc_stt_send,at L1361
+{PBMG}pbmg_pbmodectrl_pbc_stt_send is called, at L1290
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 11
+<operation>:test for PB_MSG_PBC_STT
+[<operation>] pb_notify_cb @997 Time: [315.330490]s
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+UOPQUE: mrReceiveIntUOP() called, m_u1IntUOPNum 2
+mrReceiveIntUOP, m_u1IntUOPIDIdx 0, eUOPId = 106 m_bGetSupportCodec 0 at L172
+mrReceiveIntUOP, send internal uop
+mrReceiveIntUOP, *ppucParam copy
+{PBMG} to call async to sync unlock at L480
+pbmg_queue, delete msg, cmd = 8
+{PBMG} to call async to sync unlock at L1057
+Enter pb_release_res
+{PBMG} to call async to sync lock at L995
+hxp, mrParseIntCmd eIntUop 0x106
+UOPQUE: mrReceiveIntUOP() called, m_u1IntUOPNum 1
+mrReceiveIntUOP, m_u1IntUOPIDIdx 1, eUOPId = 118 m_bGetSupportCodec 0 at L172
+mrReceiveIntUOP, send internal uop
+mrReceiveIntUOP, *ppucParam copy
+hxp, mrParseIntCmd eIntUop 0x118
+{PBMG} to call async to sync lock at L1049
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_SET_MMED_INF>, mpc handle 0
+prMPCInstData->prCurCmdReq->u4ParByteSz 0
+unset media info fgSwithRiscUnSetMediaInfo 0
+[DEC_MGR_MW] u2CompId: 4, e_set_type: 155
+[DEC_MGR_MW]The Cmd AUD_DEC_SET_TYPE_SPDIF_INPUT_MODE is not processed now!
+[  315.746944] [AUD][AUD_MW] Set AUD_DEC_SET_TYPE_SPDIF_INPUT_MODE = 0x0.
+[  315.746944]
+[  315.746973] [SPT]get SPLITTER_GET_TYPE_CTRL
+[  315.746973]
+[AIH] aih_spltr_set() e_ctrl_type=0xc0000010
+[  315.747004] [SPT] SPLITTER_SET_TYPE_DISABLE
+[  315.747004]
+[  315.747036] [Ftr] i4PSR_Filter_Enable, fgEnable:0x0, u4FtrHdl:0x1, cc hdl:0xffffffff
+[  315.747036]
+[  315.747048] [ftr] diable ftr:234000c
+[  315.747048]
+[  315.747059] [PSR][Ftr] i4PSR_Filter_Destroy, u4FilterHandle:0x1
+[  315.747059]
+[  315.747070] [PSR][Ftr] FtrDestroy, ftr:0x1, ftrFlg:0x1, ftr spec:0x960fb040
+[  315.747070]
+[  315.747088] [LPDMX][FTR] FTR set Pfr, Ftrh: 0x234000c Pfrh: 0xffffffff
+[  315.747088]
+[  315.747099] [FTR] unusing ftr:0x234000c,i:12
+[  315.747099]
+[  315.747107] [FTR] unusing ftr:0x234000c
+[  315.747107]
+[  315.747119] [Ftr] i4PSR_Filter_Enable, fgEnable:0x0, u4FtrHdl:0x2, cc hdl:0xffffffff
+[  315.747119]
+[  315.747128] [ftr] diable ftr:2340010
+[  315.747128]
+[  315.747136] [PSR][Ftr] i4PSR_Filter_Destroy, u4FilterHandle:0x2
+[  315.747136]
+[  315.747150] [PSR][Ftr] FtrDestroy, ftr:0x2, ftrFlg:0x1, ftr spec:0x0
+[  315.747150]
+[  315.7471
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+<UPG> _upg_sf_cb ---> is called @Line: 529!
+<UPG> upg_send_msg ---> is called @Line: 2636!
+<
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  376.955832] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  376.955832]
+[  376.955851] [AUD_In]Set Audio in I
+e_g_am_sys_mode:0!
+[TONLY HINA] get_check_cont=45
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x2
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  385.366786] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  385.366786]
+[  385.366802] [AUD_In]Set Audio in Input type. Input type is 2
+[  385.366802]
+[  385.366813] No has Detected, thread init: wptr:0x0, SA:0x0
+[  385.366813]
+[  385.366823] [AUDINMULTI][AUDIN_MULTI] Set Audio In Type : AUDINPORT_INTERNAL_SPDIF_IN_ARC
+[  385.366823]
+[  385.366843] GPIO Num 21 conflict 309
+[  385.366843]
+[  385.366858] Set BCK invert for harman!
+[  385.366858]
+[MPC] MPC_STR_RETN_SYNC_CMD <MPC_SCMD_AI_SW_INPUT>,handle 0, result = 0x21000100
+[  385.366950] [vScomGetAudInInfo][fan]before codec:15
+[  385.366950]
+[  385.366961] [vScomGetAudInInfo][fan]codec:15
+[  385.366961]
+UOPQUE: mrReceiveIntUOP() called, m_u1IntUOPNum 1
+mrReceiveIntUOP, m_u1IntUOPIDIdx 0, eUOPId = 122 m_bGetSupportCodec 0 at L172
+mrReceiveIntUOP, send internal uop
+hxp, mrParseIntCmd eIntUop 0x122
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 270
+<operation>:test for PB_MSG_PBC_STT
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 270
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 269
+<operation>:test for PB_MSG_PBC_STT
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 261
+<operation>:test for PB_MSG_PBC_STT
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 1995299585
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 16
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 23321
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 269
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 261
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+a_network_get_connect_status
+eth0 is unplug!
+<OrangeMoon>[OOBE]ethernet_status:2 wac_status:0 ble_status:0
+[TONLY HINA] [3][1]RsBatPercent is 160
+[TONLY HINA] [4][1]LsBatPercent is 140
+[MPC] MPC_STR_RECV_
+e_g_am_sys_mode:0!
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD
+[TONLY HINA] [3][1]RsBatPercent is 180
+[TONLY HINA] [4][1]LsBatPercent is 140
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  424.918978] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  424.918978]
+[  424.918997] [AUD_In]Set Audio in I
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  433.750567] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  433.750567]
+[  433.750583] [AUD_In]Set Audio in I
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  439.658621] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  439.658621]
+[  439.658643] [AUD_In]Set Audio in I
+a_network_get_connect_status
+eth0 is unplug!
+<OrangeMoon>[OOBE]ethernet_status:2 wac_status:0 ble_status:0
+[TONLY HINA] [3][1]RsBatPercent is 160
+[TONLY HINA] [4][1]LsBatPercent is 140
+e_g_am_sys_mode:0!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mp
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x86 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x86]
+<MISC_CEC> CECM_OPCODE_SET_STREAM_PATH
+<TCL_CEC> Line 2427 a_tcl_cec_opcode_set_stream_path_proc src/tonly_application/tonly_cec/tonly_cec.c
+<CECM_OPCODE_SET_STREAM_PATH>--ui2_pa = 0x1000!
+<TCL_CEC> Line 403 a_tcl_reapter_hdmi1_pa src/tonly_application/tonly_cec/tonly_cec.c
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x70 (la=0),drv_comp=0
+
+{CECM} Frame (sent): 0x0 (src la=0, dest la=0)
+
+{CECM} Frame oprand[0]: 112
+
+{CECM} Frame oprand[1]: 0
+[  453.365239] [CEC] MW Send message
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+[  465.675147] [HDMI][CEC] This message is successful! initiator: 0x0,destination: 0x0,opcode: 0x90, size:3,
+[  465.675147]
+[  465.675188] [CEC] vApiNotifyCECTxResult OK
+[  465.675188]
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_ACK
+{CECM}
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+e_g_am_sys_mode:0!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_ST
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  472.061348] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  472.061348]
+[  472.061365] [AUD_In]Set Audio in I
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+e_g_am_sys_mode:0!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  480.052075] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  480.052075]
+[  480.052090] [AUD_In]Set Audio in I
+a_network_get_connect_status
+eth0 is unplug!
+<OrangeMoon>[OOBE]ethernet_status:2 wac_status:0 ble_status:0
+[TONLY HINA] [3][1]RsBatPercent is 160
+[TONLY HINA] [4][1]LsBatPercent is 140
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MP
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  488.883631] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  488.883631]
+[  488.883650] [AUD_In]Set Audio in Input type. Input type is 2
+[  488.883650]
+[  488.883661] No has Detected, thread init: wptr:0x0, SA:0x0
+[  488.883661]
+[  488.883672] [AUDINMULTI][AUDIN_MULTI] Set Audio In Type : AUDINPORT_INTERNAL_SPDIF_IN_ARC
+[  488.883672]
+[  488.883694] GPIO Num 21 conflict 309
+[  488.883694]
+[  488.883709] Set BCK invert for harman!
+[  488.883709]
+[MPC] MPC_STR_RETN_SYNC_CMD <MPC_SCMD_AI_SW_INPUT>,handle 0, result = 0x21000100
+[  488.883795] [vScomGetAudInInfo][fan]before codec:15
+[  488.883795]
+[  488.883805] [vScomGetAudInInfo][fan]codec:15
+[  488.883805]
+UOPQUE: mrReceiveIntUOP() called, m_u1IntUOPNum 0
+e_g_am_sys_mode:0!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] ai
+e_g_am_sys_mode:0!
+<OrangeMoon>[DATA_PASS]tx recv rs bat:140!
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INP
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  514.137226] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  514.137226]
+[  514.137243] [AUD_In]Set Audio in I
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[  523.235118] [HDMI][CEC] This message is successful! initiator: 0x0,destination: 0x0,opcode: 0x0, size:4,
+[  523.235118]
+[  523.235142] [CEC] vApiNotifyCECTxResult OK
+[  523.235142]
+
+{CECM} _cecm_cec_nfy_fct be called
+[MPC] MPC_STR_RECV_NORM_CMD <MP
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x8f (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x8f]
+<MISC_CEC> CECM_OPCODE_GIVE_DEV_PWR_STS,t_g_addr.e_la=0, to_l
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  537.268298] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  537.268298]
+[  537.268317] [AUD_In]Set Audio in Input type. Input type is 2
+[  537.268317]
+[  537.268329] No has Detected, thread init: wptr:0x0, SA:0x0
+[  537.268329]
+[  537.268339] [AUDINMULTI][AUDIN_MULTI] Set Audio In Type : AUDINPORT_INTERNAL_SPDIF_IN_ARC
+[  537.268339]
+[  537.268361] GPIO Num 21 conflict 309
+[  537.268361]
+[  537.268377] Set BCK invert for harman!
+[  537.268377]
+[MPC] MPC_STR_RETN_SYNC_CMD <MPC_SCMD_AI_SW_INPUT>,handle 0, result = 0x21000100
+[  537.268467] [vScomGetAudInInfo][fan]before codec:15
+[  537.268467]
+[  537.268484] [vScomGetAudInInfo][fan]codec:15
+[  537.268484]
+UOPQUE: mrReceiveIntUOP() called, m_u1IntUOPNum 1
+mrReceiveIntUOP, m_u1IntUOPIDIdx 0, eUOPId = 122 m_bGetSupportCodec 0 at L172
+mrReceiveIntUOP, send internal uop
+hxp, mrParseIntCmd eIntUop 0x122
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 270
+<operation>:test for PB_MSG_PBC_STT
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 269
+<operation>:test for PB_MSG_PBC_STT
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 270
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 1
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 269
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 261
+<operation>:test for PB_MSG_PBC_STT
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 261
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x8f (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x8f]
+<MISC_CEC> CECM_OPCODE_GIVE_DEV_PWR_STS,t_g_addr.e_la=0, to_l
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x70 (la=0),drv_comp=0
+
+{CECM} Frame (sent): 0x0 (src la=0, dest la=0)
+
+{CECM} Frame oprand[0]: 112
+
+{CECM} Frame oprand[1]: 0
+[  578.795340] [CEC] MW Send message
+[  578.795340]
+[  578.795356] [CEC] Opcode = 0x0, size = 0x4
+[  578.795356]
+
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch() t_set_audin_input.u1SpdifInType = 1
+[  578.816201] [Audin_mw] API: _AudInSet(), -- AUDIN_SET_INPUT_SWITCH!
+[  578.816201]
+[  578.816217] [AUD_In]Set Audio in Input type. I
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x70 (la=0),drv_comp=0
+
+{CECM} Frame (sent): 0x0 (src la=0, dest la=0)
+
+{CECM} Frame oprand[0]: 112
+
+{CECM} Frame oprand[1]: 0
+[  589.945283] [CEC] MW Send message
+[TONLY HINA] [3][1]RsBatPercent is 160
+[TONLY HINA] [4][1]LsBatPercent is 140
+e_g_am_sys_mode:0!
+<OrangeMoon>[DATA_PASS]tx recv ls bat:140!
+[TONLY HINA] get_check_cont=24
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASY ÿÿ    preloader_v.42133
+[nand] ckgen=0x0, _fgUsingDMA:0x0
+[fgBootLoaderHeaderVerification] read page correcte able and read success
+dosf!
+dop!
+[N0]
+OCTV 29, OFTV 28
+[N1]
+Err
+[N2]
+Err
+[N0]
+DDV=0x15
+fs=5 tp=19 bs=7
+[N1]
+DDV=0x15
+Err
+fs=5 tp=255 bs=0
+[N2]
+DDV=0x15
+Err
+fs=5 tp=255 bs=0
+DN0 101
+DN1 Err
+DN2 Err
+DRAM_CHA_I6BIT
+[nand] ckgen=0x3, _fgUsingDMA:0x1
+NSBC
+1300, 1728, 1188
+DRS:  512 MB
+RI: 0x2c 0xdc 0x80 0xa6 0x62 0x0
+FMB 512
+r_args_to_uboot:
+	head sig	: 0xa0b0ead1
+	version	: 1
+	boot type	: 0
+	dram ch1	: 0x20000000
+	dram ch2	: 0x00000000
+	kern addr	: 0x060fffc0
+	initrd addr	: 0x0f000000
+	initrd size	: 0x002e63b0
+enable bim two way write.
+[uboot_LED] tonly led init.
+[uboot_LED] first power on.
+channel A hole size is 0x0
+Bootloader version 38946
+ uboot print ch size,r_args_to_uboot.u4_dram_size_ch1=20000000,r_args_to_uboot.u4_dram_size_ch2=0
+ÌÌÌÌÌÌÌÌªªªªªªÿª
+Hit any key to stop autoboot:  0
+<<MTK:8551>>
+[TRUST ZONE]copy tz binary to 0e700000, SbinImagesize:0x578c4, sbinfullsize:0x209226, svp size:0x600000, mem size:0x900000
+bootargs:root=/dev/ram0 rw initrd=0x0f000000,0x002e63ae console=ttyMT0  mem=512M isolcpus=2,3 isolcpus=2,3 drvmem=259M,41M,0M BL_Ver=38946 androidboot.console=ttyMT0 androidboot.hardware=wutang  tz_mem=9437184
+## Booting kernel from Legacy Image at 060fffc0 ...
+   Image Name:
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    3245504 Bytes =  3.1 MB
+   Load Address: 06100000
+   Entry Point:  06100000
+   Loading Kernel Image ... OK
+OK
+Starting_kernel...
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000]
+[    0.000000] Linux version 4.9.134 (chenzhijun@ubuntu203) (gcc version 4.8.2 20131014 (prerelease) (Linaro GCC 4.8-2013.10) ) #1 SMP PREEMPT Thu Feb 9 10:11:52
+[    3.874279] UBIFS (ubi0:1): recovery completed
+[    3.874279]
+[    3.874314] UBIFS (ubi0:1): UBIFS: mounted UBI device 0, volume 1, name "chrome"
+[    3.874314]
+[    3.874326] UBIFS (ubi0:1): LEB size: 253952 bytes (248 KiB), min./max. I/O unit sizes:APP>airplay_wac_listen_thread_main:Waiting for sem g_sem_start_dhcpc...
+<NW_ENTRY> _network_entry_app_init_fct
+<<APP MarkPoint>>:  autoscript application init
+<AMB> sync. start autocli
+
+<<APP MarkPoint>>: fa application application init
+<AMB> sync. start fa
+
+<AIRPLAY_STUB_APP> cast name = Bedroom
+<AIRPLAY_STUB_APP> device_scan_name = Bedroom
+<<APP MarkPoint>>:  dial_stub application init
+[src/application/app_start/a_app_start.c, application_init, 3382] a_dial_stub_init
+[IPCD]CMD: libwebsockets-test-server &
+[IPCD] <MW> Use 0 th ipcd thread in total 1 connections !
+[IPCD] Got incoming request & lock!!
+[IPCD] Accept the request : 4 !!
+[IPCD] Safe read, size: 4220, fd: 4!!
+[IPCD] Unpack req type 0 !!
+[IPCD] [IPCD] system(libwebsockets-test-server &)
+[IPCD] shell excute successfully
+[IPCD] Req reply :0 !!
+Safe read error : Connection reset by peer !!
+safe read fail, size: -1 status: 0
+[    7.822620] [AUD]Mute Risc Aout2: 0.
+[    7.822620]
+<AM>>>>>>>>> [c_scc_comp_grp_set] ret=0
+[    7.822713] TVE_SetEnable
+[    7.822713]
+[    7.822766] [TVE]BSP_GetIcFunc(PROT_CVBS) == FALSE
+[    7.822766]
+[SCOM] open name=snk_MainDisp
+[SCOM] open handle=15520444
+_get_learnt_key_from_file func
+need to creat ir_learn.dat  file!
+_get_learnt_key_from_file func out
+[DEC_MGR_MW] u2CompId: 0, e_set_type: 20017f
+[DEC_MGR_MW] u2CompId: 0, e_set_type: 20017f
+<ACFG> a_acfg_init_move_to_phase2 is called, @3821, 1
+<ACFG> a_app_extpp_init is called, @169
+[    7.822995] [AUD][SE] EXT_PP Set Proc Type = 0x8
+[    7.822995]
+[    7.823005] [AUD][SE] EXT_PP is Normal Mode.
+[    7.823005]
+[    7.823018] [AUD][SE] EXT_PP is Normal Mode.
+[    7.823018]
+[    7.823026] [AUD][SE] EXT_PP Turn Off.
+[    7.823026]
+[    7.823040] [AUD][AUD_MW] Set AUD_DEC_SET_TYPE_SPEAKER_LAYOUT=0x1050007.
+[    7.823040]
+[DEC_MGR_MW] u2CompId: 0, e_set_type: 12b
+[DEC_MGR]i4AudSetSpkConfig() L2428, u4SpkConfig1=0x7f03f,u4SpkConfig2=0xf
+[DEC_MGR]vSetParamString() L1099, src: (2)
+[DEC_MGR]vSetParamString() L1101, -speakers [DEC_MGR]vSetParamString() L1101, lr:c:lrs:lfe:lre:lrse [DEC_MGR]vSetParamString() L1102,
+[DEC_MGR]vSetParamString() L1104, dest: (0)
+[DEC_MGR]vSetParamString() L1109,
+[DEC_MGR]vSetParamString() L1183, Target: (2)
+-speakers lr:c:lrs:lfe:lre:lrse [DEC_MGR]vSetParamString() L1188,
+[DEC_MGR]vSetParamString() L1099, src: (2)
+[DEC_MGR]vSetParamString() L1101, -speakers [DEC_MGR]vSetParamString() L1101, lr:c:lrs:lfe:lre:lrse [DEC_MGR]vSetParamString() L1102,
+[DEC_MGR]vSetParamString() L1104, dest: (0)
+[DEC_MGR]vSetParamString() L1109,
+[DEC_MGR]vSetParamString() L1183, Target: (2)
+-speakers lr:c:lrs:lfe:lre:lrse [DEC_MGR]vSetParamString() L1188,
+[    7.823323] [AUD][SE] Enable force post processing working.
+[    7.823323]
+<acfg> _acfg_post_init()
+[    7.823364] [AUD][AUD_MW]: API: _SetVolume().
+[    7.823364]
+[    7.823373] [AUD][AUD_MW]: -- e_vol_type = 0
+[    7.823373]
+[    7.823383] [AUD][DSP_CFG]: API: vAdspMasterVolume().
+[    7.823383]
+[    7.823391] [AUD][DSP_CFG]: -- u1Volume = 5
+[    7.823391]
+[DEC_MGR_MW] u2CompId: 0, e_set_type: 104
+[DEC_MGR_MW]The Cmd AUD_DEC_SET_TYPE_VOLUME is processed now!compId[0]=4,compId[1]=5,compId[2]=6,compId[3]=0
+[DEC_MGR]i4RiscDecChannelVolumeCtrl() L3840, gAudMgr->rAudCommInfo.rVolume_Control.u4MasterVolume = 0x1d22a.
+[MOMgr]i4MixerMgrSetParamters() Mixer Output is uninit,can not set para:0
+[AUD_MIXER]i4AudSetParameter() L2259, i4SetParamters fail !
+<AUDIO> a_audio_set_command 2
+<ACFG> a_cfg_get_source, value : 6
+[PLAYBACK] b_hdmi_connected is 0, ui1_resolution is 0
+[PLAYBACK]a_pb_cav_output_should_down_sample return TRUE line 680
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:66112
+[    7.823587] [AVD]fgPmxDrvSetAvd is called at line 302  e_nfy_cond = PMX_SET_HDMI_BRIGHTNESS
+[    7.823587]
+[    7.823616] [AVD]vAVDCmdDispatch is called at line 1103  u4Msg = AVD_CHG_VIDEO_BRIGHTNESS _bAVD_State = 0 u1MsgArg
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[SSDP] No N
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be cal
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+{CECM} _cecm_cec_nfy_fct be cal
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_co
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platfo
+e_g_am_sys_mode:2!
+[SSDP] no matched
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+[SMB] _net_s
+{CECM} _cecm_cec_nfy_fct be called
+<CECM>CEC_NFY_TYPE_FRAME
+{CECM} Frame (received): 0x87 (la=0),drv_comp=0
+
+{CECM} e_drv_comp:0
+<MISC_CEC> misc_cec_nfy_proc e_nfy_type[0x0],e_msgcode[0x87]
+<TCL_CEC> Line 4254 a_tcl_cec_standby_quick_start_on_nfy_proc
+[TONLY HINA] [3][1]RsBatPercent is 0
+[TONLY HINA] [4][1]LsBatPercent is 0
+e_g_am_sys_mode:2!
+e_g_am_sys_mode:2!
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[  116.957059] [VFD]BTN_SOURCE
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+b_audio_feedback=0
+[  124.379090] [AUD][AUD_MW]: API: _SetVolume().
+[  124.379090]
+[  124.379110] [AUD][AUD_MW]: -- e_vol_type = 0
+[  124.379110]
+[  124.379121] [AUD][DSP_CFG]: API: vAdspMasterVolume().
+[  124.379121]
+[  124.379130] [AUD][DSP_CFG]: -- u1Volume = 5
+[  124.379130]
+[DEC_MGR_MW] u2CompId: 0, e_set_type: 104
+[DEC_MGR_MW]The Cmd AUD_DEC_SET_TYPE_VOLUME is processed now!compId[0]=4,compId[1]=5,compId[2]=6,compId[3]=0
+[DEC_MGR]i4RiscDecChannelVolumeCtrl() L3840, gAudMgr->rAudCommInfo.rVolume_Control.u4MasterVolume = 0x1d22a.
+[MOMgr]i4MixerMgrSetParamters() Mixer Output is uninit,can not set para:0
+[AUD_MIXER]i4AudSetParameter() L2259, i4SetParamters fail !
+[DEC_MGR_MW] u2CompId: 0, e_set_type: 203
+[_AudSet]AUD_DEC_SET_OUTPUT_TRIM
+[DEC_MGR]_i4AudSetOutputTrim() L4214,  -- output device = 8
+[DEC_MGR]_i4AudSetOutputTrim() L4234, u1trim_indx is 100, u4Trim is 0x3ffffc0.
+[MOMgr]i4MixerMgrSetParamters() Mixer Output is uninit,can not set para:0
+[AUD_MIXER]i4AudSetParameter() L2259, i4SetParamters fail !
+<TCL_SRC> Line 1540 tonly_start_power_proc_cb
+tonly_set_waiting_power_proc 0
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+e_g_am_sys_mode:0!
+[TONLY HINA] get_check_cont=31
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>,
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x21000100
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_SCMD_AI_SW_INPUT>, mpc handle 0
+[AIH] aih_set_input_switch()
+[WAC Platform: WACMain_POSIX_Stub.c: 355] interface ap0 is down, WAC will continue when interface ap0 is up
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result
+e_g_am_sys_mode:0!
+[TONLY HINA] get_check_cont=43
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x2ation>:test for PB_MSG_PBC_STT
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 269
+<operation>:test for PB_MSG_PBC_STT
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 270
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 1
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 269
+<pb_notify_cb>: current active APP is playback
+<pb_notify_cb>:e_msg_id is 261
+<operation>:test for PB_MSG_PBC_STT
+<PLAYBACK_DEBUG>_playback_app_process_msg_fct type:2
+<PLAYBACK_DEBUG>Notify come
+<PLAYBACK_DEBUG> PLAY STATE IS 0
+<PLAYBACK_DEBUG> PLAY u1PBCSubStt IS 0
+<PLAYBACK_DEBUG> msg type is 0
+<PLAYBACK_DEBUG> reasion is 0
+<PLAYBACK>mtk15012->test pb_get_cur_media_type_from_notify: reason = 0
+
+pb_aud_in_notify_default_proc is called
+pt_notify->e_msg_type: 0
+pb_aud_in_pb_notify_default_proc is called
+pt_pb_notify->e_msg_id: 261
+e_g_am_sys_mode:0!
+[TONLY HINA] get_check_cont=47
+[TONLY HINA] tonly_stop_1_hour_display_hina_timer
+<ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ <ACFG> F:a_cfg_get_hdmi_tx_plug_in HDMI_TX:1
+e_g_am_sys_mode:0!
+<OrangeMoon>[DATA_PASS]tx recv rs bat:140!
+[MPC] MPC_STR_RECV_NORM_CMD <MPC_CMD_STOP>, mpc handle 0
+[MPC] MPC_STOP_RESET_FLAG
+[MPC] MPC_STR_RETN_ASYNC_CMD <MPC_CMD_STOP>,handle 0, result = 0x2100010
